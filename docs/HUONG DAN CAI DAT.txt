@@ -1,0 +1,75 @@
+AUTOCAPCUT STUDIO - HƯỚNG DẪN CÀI ĐẶT
+=====================================
+
+YÊU CẦU
+-------
+- Mac chip Apple Silicon (M1/M2/M3/M4). Máy Mac chip Intel KHÔNG chạy được.
+  Kiểm tra: menu Apple > About This Mac > dòng "Chip" phải ghi "Apple M...".
+- macOS 11 trở lên.
+- Đã cài CapCut và đã từng tạo ít nhất một dự án trong CapCut.
+
+
+CÀI ĐẶT
+-------
+1. Mở file .dmg vừa tải về.
+2. Kéo "AutoCapCut Studio" thả vào thư mục Applications trong cùng cửa sổ.
+3. Đóng cửa sổ dmg lại.
+
+
+MỞ LẦN ĐẦU - BƯỚC BẮT BUỘC
+--------------------------
+App này chưa mua chứng chỉ của Apple nên macOS sẽ chặn ở lần mở đầu tiên,
+báo đại loại "không mở được vì Apple không kiểm tra được phần mềm độc hại".
+Đây là chuyện bình thường với app không qua App Store, không phải app bị lỗi.
+
+Cách 1 - nhanh và chắc chắn nhất:
+  Mở Terminal (bấm Cmd + dấu cách, gõ "Terminal", Enter), dán đúng dòng sau
+  rồi Enter:
+
+      xattr -cr "/Applications/AutoCapCut Studio.app"
+
+  Xong. Từ giờ mở app bình thường.
+
+Cách 2 - không cần Terminal:
+  - Bấm đúp app, macOS báo lỗi, bấm Done/OK.
+  - Vào System Settings > Privacy & Security.
+  - Kéo xuống dưới, thấy dòng nhắc về "AutoCapCut Studio", bấm "Open Anyway".
+  - Bấm đúp app lại, chọn Open.
+
+
+DÙNG APP
+--------
+Cần chuẩn bị 4 thứ:
+  1. File voice (mp3, wav, m4a, aac, flac, ogg...).
+  2. File phụ đề .srt khớp với file voice đó.
+  3. Danh sách scene: mỗi scene một dòng. Dán thẳng vào ô, hoặc bấm
+     "Chọn file" để nạp từ file .txt.
+  4. Thư mục ảnh/video: đặt tên file theo số thứ tự 1, 2, 3... để ảnh số mấy
+     vào đúng scene số đó.
+
+Đặt tên project rồi bấm TẠO PROJECT CAPCUT.
+
+QUAN TRỌNG: thoát hẳn CapCut (Cmd+Q) trước khi bấm nút. CapCut ghi đè danh
+mục dự án khi thoát, nếu để nó đang mở thì dự án mới có thể không hiện ra.
+
+Xong thì mở CapCut, dự án nằm trong danh sách ngoài màn hình chính.
+
+
+APP KHÔNG TỰ TẠO PHỤ ĐỀ
+-----------------------
+Bản này bắt buộc phải có sẵn file .srt. Nếu chưa có, dùng một trong các cách:
+  - Tính năng tự tạo phụ đề có sẵn trong CapCut.
+  - Trang web chuyển giọng nói thành chữ bất kỳ, xuất ra .srt.
+
+
+LỖI THƯỜNG GẶP
+--------------
+"Không tìm thấy thư mục draft của CapCut"
+  Mở CapCut, tạo đại một dự án trống rồi thoát ra, sau đó chạy lại app.
+  App cần thư mục draft tồn tại sẵn thì mới ghi vào được.
+
+"Tạo xong nhưng CapCut không thấy dự án"
+  Thoát hẳn CapCut bằng Cmd+Q rồi mở lại. Đóng cửa sổ thôi là chưa đủ.
+
+App xin quyền đọc Desktop/Documents/Downloads
+  Bấm cho phép. App cần đọc file voice và thư mục ảnh bạn chọn.

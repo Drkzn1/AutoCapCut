@@ -1,0 +1,22 @@
+# Môi trường ảo - mỗi máy tự tạo lại, nặng hơn 1 GB
+.venv/
+.venv-win/
+
+# Kết quả build - sinh lại được, không nên nằm trong lịch sử git
+dist/
+dist-win/
+build/work/
+build/work-win/
+build/dmg-stage/
+build/*.iconset/
+
+# Giữ lại icon vì file spec cần tới lúc đóng gói
+!build/AutoCapCut.icns
+!build/AutoCapCut.ico
+
+# Dữ liệu làm việc của người dùng, không phải mã nguồn
+input/
+
+__pycache__/
+*.py[cod]
+.DS_Store

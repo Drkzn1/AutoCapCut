@@ -1,0 +1,78 @@
+BUILD AUTOCAPCUT STUDIO CHO WINDOWS
+===================================
+
+Vì sao phải làm trên máy Windows
+--------------------------------
+PyInstaller không build chéo hệ điều hành. Máy Mac chỉ tạo được file cho Mac,
+muốn có .exe thì bắt buộc phải chạy build trên một máy Windows. Không có cách
+nào lách. Máy ảo Windows (Parallels, VMware, UTM) cũng được.
+
+Code đã xử lý sẵn khác biệt giữa hai hệ:
+  - Windows đọc draft_content.json, macOS đọc draft_info.json
+  - Đường dẫn draft: %LOCALAPPDATA%\CapCut\User Data\Projects\com.lveditor.draft
+  - Không nháy cửa sổ console khi kiểm tra CapCut đang chạy
+Nên chỉ cần đóng gói, không phải sửa gì thêm.
+
+
+CHUẨN BỊ (làm một lần)
+----------------------
+1. Chép cả thư mục AutoCapCut này sang máy Windows (USB, Google Drive, mạng
+   nội bộ... đều được). KHÔNG cần chép thư mục .venv - nó chỉ dùng cho Mac,
+   xoá đi cho nhẹ.
+
+2. Cài Python trên máy Windows:
+   - Vào https://www.python.org/downloads/
+   - Tải bản 3.12 (đừng lấy bản mới nhất nếu nó vừa ra, thư viện hay chưa kịp
+     hỗ trợ)
+   - Khi cài, BẮT BUỘC tick ô "Add python.exe to PATH" ở màn hình đầu tiên
+
+
+BUILD
+-----
+Bấm đúp file build_windows.bat rồi chờ.
+
+Script sẽ tự: kiểm tra Python -> tạo môi trường ảo -> cài thư viện -> đóng gói.
+Lần đầu mất khoảng 5-15 phút vì phải tải PySide6 (~100 MB). Các lần sau nhanh
+hơn nhiều vì thư viện đã nằm sẵn.
+
+Xong sẽ có:
+    dist-win\AutoCapCut Studio\AutoCapCut Studio.exe
+
+
+GỬI CHO NGƯỜI KHÁC
+------------------
+Chuột phải lên thư mục "AutoCapCut Studio" trong dist-win
+-> Send to -> Compressed (zipped) folder
+Gửi file .zip đó. Người nhận giải nén ra đâu cũng chạy được, không cần cài
+Python.
+
+LƯU Ý: phải gửi CẢ THƯ MỤC, không phải mỗi file .exe. File exe cần các file
+xung quanh nó mới chạy được.
+
+
+CẢNH BÁO KHI MỞ LẦN ĐẦU
+-----------------------
+App chưa mua chữ ký số nên Windows SmartScreen sẽ hiện bảng xanh
+"Windows protected your PC".
+Bấm "More info" -> "Run anyway". Từ lần sau mở bình thường.
+
+Muốn hết cảnh báo này phải mua code signing certificate (khoảng 200-400
+USD/năm), tuỳ bạn có cần hay không.
+
+Một số phần mềm diệt virus cũng hay nghi ngờ app đóng gói bằng PyInstaller.
+Đây là cảnh báo nhầm, khá phổ biến. Nếu bị chặn thì thêm ngoại lệ cho thư mục.
+
+
+LỖI THƯỜNG GẶP KHI BUILD
+------------------------
+"Khong tim thay Python"
+  Chưa tick "Add python.exe to PATH" lúc cài. Gỡ Python ra cài lại, nhớ tick.
+
+"cai thu vien that bai"
+  Kiểm tra mạng. Nếu dùng mạng công ty có chặn thì thử mạng khác hoặc điện
+  thoại phát wifi.
+
+Build xong nhưng mở exe không lên gì
+  Mở cmd, chạy thẳng file exe để xem lỗi thật:
+      "dist-win\AutoCapCut Studio\AutoCapCut Studio.exe" --help
+  Nếu ra được phần trợ giúp thì phần lõi ổn, vấn đề nằm ở giao diện.

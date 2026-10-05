@@ -1,0 +1,10 @@
+# Giữ nguyên xuống dòng kiểu Windows cho file .bat. Nếu git đổi thành LF thì
+# cmd.exe có thể đọc sai và script build hỏng giữa chừng.
+*.bat text eol=crlf
+
+# Script shell cho macOS/Linux thì ngược lại, bắt buộc LF
+*.sh       text eol=lf
+*.command  text eol=lf
+
+*.icns binary
+*.ico  binary

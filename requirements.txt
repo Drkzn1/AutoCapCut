@@ -1,0 +1,9 @@
+av==15.1.0
+ctranslate2==4.8.1
+faster-whisper==1.2.1
+ImageIO==2.37.2
+numpy==2.0.2
+pillow==11.3.0
+pycapcut==0.0.3
+pymediainfo==7.0.1
+PySide6==6.10.3
